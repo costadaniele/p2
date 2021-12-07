@@ -1,0 +1,39 @@
+<div *ngIf="!auth">
+  <div class="form">
+    <div *ngIf="!auth">
+      <h2>Cadastrar Cápsula</h2>
+      <hr />
+      <p class="txt_form">Título</p>
+      <div><input type="text" [(ngModel)]="title" /></div>
+      <hr />
+      <div>
+        <input
+          class="botao"
+          type="button"
+          value="Cadastrar"
+          (click)="postCapsula()"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="apt">
+  <!--Cápsulas-->
+  <div *ngIf="!auth">
+    <div class="form_req">
+      <p><button class="botao_get" (click)="getList()">Cápsulas</button></p>
+
+      <div class="list" *ngIf="list">
+        <table>
+          <tr>
+            <th>título</th>
+          </tr>
+
+          <tr *ngFor="let item of list">
+            <td>{{ item['title'] }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
